@@ -1,11 +1,9 @@
 <template>
-    <div class="backdrop" @click.self="closeModal">
+        <div class="backdrop" @click.self="closeModal">
         <div class="modal" :class="{sale: theme==='sale'}">
-            <div class="modal-header" >
-                <h2>{{header}}</h2>
-            </div>
-            <hr>
-            <p>{{component}}</p>
+            <slot>
+                
+            </slot>
         </div>
     </div>
 </template>
@@ -20,7 +18,6 @@ export default{
     }
 }
 </script>
-
 <style >
 .modal{
     width: 400px;

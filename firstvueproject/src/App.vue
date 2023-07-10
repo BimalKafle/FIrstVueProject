@@ -1,23 +1,37 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
- <ModalComponent :header="header" :component="component" :theme="theme"/>
+  <div v-if="showModal">
+     <!-- <ModalComponent :header="header" :component="component" :theme="theme" @close="handleEvent"/> -->
+     <ModalComponent2 @close="handleEvent">
+      <h1>This is a second Model Slot</h1>
+     </ModalComponent2>
+  </div>
+  <button @click="handleEvent">Show Modal</button>
  
 </template>
 
 <script>
 
-import ModalComponent from './components/ModalComponent.vue'
+// import ModalComponent from './components/ModalComponent.vue'
+import ModalComponent2 from './components/ModalComponent2.vue'
 export default {
   name: 'App',
   components: {
-    ModalComponent
+    // ModalComponent,
+    ModalComponent2
   },
   data(){
     return{
       header:"Sign Up",
       component:"Please sign in to continue",
-      theme:"sale"
+      theme:"sale",
+      showModal:false
     }
+  },
+  methods:{
+      handleEvent(){
+       this.showModal=!this.showModal;    
+  }
   }
 }
 </script>
